@@ -5,7 +5,13 @@
 			class="pl-4 pr-6 pt-4 pb-4 border-b border-t border-gray-200 sm:pl-6 lg:pl-8 xl:pl-6 xl:pt-6 xl:border-t-0"
 		>
 			<div class="flex items-center">
-				<h1 class="flex-1 text-lg font-medium">Curriculum Vitae</h1>
+				<h1 class="flex-1 text-lg font-medium">
+					Curriculum Vitae
+					<div class="text-sm font-normal" v-show="this.query != ''">
+						Searching for : {{ this.query }} (please take your time,
+						because the request is very long)
+					</div>
+				</h1>
 				<div class="relative">
 					<button
 						type="button"
@@ -76,7 +82,7 @@
 		<ul
 			role="list"
 			class="relative z-0 divide-y divide-gray-200 border-b border-gray-200"
-			v-for="cv in cvs"
+			v-for="cv in results"
 			:key="cv.id"
 		>
 			<li class="relative pl-4 pr-6 py-5 hover:bg-gray-100">
@@ -241,8 +247,12 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+	props: {
+		query: String,
+	},
 	data: () => ({
 		showSort: false,
+		results: [],
 		cvs: '',
 	}),
 	mounted() {
@@ -256,6 +266,30 @@ export default defineComponent({
 			.catch((error) => {
 				this.cvs = error;
 			});
+	},
+	methods: {
+		search: function() {
+			if (this.query == '') {
+				this.results = this.cvs;
+			} else {
+				fetch('http://localhost:8000/cv/search?keywords=' + this.query, {
+					headers: { 'Content-type': 'application/json' },
+				})
+					.then((res) => res.json())
+					.then((response) => {
+						this.results = response.data;
+					})
+					.catch((error) => {
+						this.results = error;
+					});
+			}
+		},
+	},
+	watch: {
+		// Watch for change in the query string and recall the search method.
+		query: function() {
+			this.search();
+		},
 	},
 });
 </script>

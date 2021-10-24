@@ -32,7 +32,6 @@
 									<div
 										class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
 									>
-										<!-- Heroicon name: solid/search -->
 										<svg
 											class="h-5 w-5"
 											xmlns="http://www.w3.org/2000/svg"
@@ -47,13 +46,16 @@
 											/>
 										</svg>
 									</div>
-									<input
-										id="search"
-										name="search"
-										class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-indigo-400 bg-opacity-25 text-indigo-100 placeholder-indigo-200 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm"
-										placeholder="Search CVs"
-										type="search"
-									/>
+									<form action="" class="search-form">
+										<input
+											id="search"
+											name="search"
+											class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-indigo-400 bg-opacity-25 text-indigo-100 placeholder-indigo-200 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm"
+											placeholder="Search CVs"
+											type="search"
+											v-model="query"
+										/>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -117,8 +119,22 @@
 			</nav>
 			<!-- 2 column wrapper -->
 			<div class="flex-grow w-full max-w-7xl mx-auto xl:px-8 lg:flex">
-				<router-view />
+				<!-- <router-view /> -->
+				<Home :query="query" />
 			</div>
 		</div>
 	</div>
 </template>
+<script>
+import { defineComponent } from 'vue';
+import Home from './views/Home.vue';
+
+export default defineComponent({
+	components: {
+		Home,
+	},
+	data: () => ({
+		query: '',
+	}),
+});
+</script>

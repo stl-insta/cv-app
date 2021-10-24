@@ -99,7 +99,7 @@
 		</div>
 
 		<template v-if="!showUploadForm">
-			<List />
+			<List :query="query" />
 		</template>
 		<template v-else>
 			<Form />
@@ -116,6 +116,9 @@ export default defineComponent({
 	components: {
 		List,
 		Form,
+	},
+	props: {
+		query: String,
 	},
 	data: () => ({
 		showUploadForm: false,
