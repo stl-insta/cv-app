@@ -5,10 +5,7 @@
 			class="fixed top-0 left-0 w-1/2 h-full bg-white"
 			aria-hidden="true"
 		></div>
-		<div
-			class="fixed top-0 right-0 w-1/2 h-full bg-gray-50"
-			aria-hidden="true"
-		></div>
+		<div class="fixed top-0 right-0 w-1/2 h-full" aria-hidden="true"></div>
 		<div class="relative min-h-full flex flex-col">
 			<!-- Navbar -->
 			<nav class="flex-shrink-0 bg-indigo-600">
