@@ -1,19 +1,17 @@
 # CV App
 
-## Installation
+## Getting started
 
 ```sh
 yarn
-```
-
-## Development
-
-```sh
 yarn dev
 ```
 
-## Build
+## User interface
+Home Page:
 
-```sh
-yarn build
-```
+![image](https://user-images.githubusercontent.com/28400679/138609757-b166d489-5080-4335-b6eb-e2bf6210506a.png)
+
+File Upload Page:
+
+![image](https://user-images.githubusercontent.com/28400679/138609773-01b9de92-8aea-4ee3-b81a-5a62bc32f173.png)
