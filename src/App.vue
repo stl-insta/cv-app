@@ -118,21 +118,10 @@
 					</div>
 				</div>
 			</nav>
-			<!-- 3 column wrapper -->
+			<!-- 2 column wrapper -->
 			<div class="flex-grow w-full max-w-7xl mx-auto xl:px-8 lg:flex">
 				<router-view />
 			</div>
 		</div>
 	</div>
 </template>
-
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-	data: () => ({
-		showMenu: false,
-		showProfileMenu: false,
-	}),
-});
-</script>
