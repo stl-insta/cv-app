@@ -252,7 +252,7 @@ export default defineComponent({
 	},
 	data: () => ({
 		showSort: false,
-		results: [],
+		results: '',
 		cvs: '',
 	}),
 	mounted() {
@@ -262,9 +262,11 @@ export default defineComponent({
 			.then((res) => res.json())
 			.then((response) => {
 				this.cvs = response.data;
+				this.results = response.data;
 			})
 			.catch((error) => {
 				this.cvs = error;
+				this.results = error;
 			});
 	},
 	methods: {
