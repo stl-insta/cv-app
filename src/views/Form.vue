@@ -4,7 +4,7 @@
 			<h2 class="mt-5 text-3xl font-bold text-gray-900">
 				Upload a CV
 			</h2>
-			<p class="mt-2 text-sm text-gray-400">
+			<p class="mt-3 mb-2 text-sm text-gray-400">
 				Don't forget to rename your file.
 			</p>
 		</div>
