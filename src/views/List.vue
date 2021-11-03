@@ -245,6 +245,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
+import { config } from '../config';
 
 export default defineComponent({
 	props: {
@@ -256,7 +257,7 @@ export default defineComponent({
 		cvs: '',
 	}),
 	mounted() {
-		fetch('http://localhost:8000/cv/list', {
+    fetch(`${config.apiUrl}/cv/list`, {
 			headers: { 'Content-type': 'application/json' },
 		})
 			.then((res) => res.json())
@@ -274,7 +275,7 @@ export default defineComponent({
 			if (this.query == '') {
 				this.results = this.cvs;
 			} else {
-				fetch('http://localhost:8000/cv/search?keywords=' + this.query, {
+				fetch(`${config.apiUrl}/cv/search?keywords=` + this.query, {
 					headers: { 'Content-type': 'application/json' },
 				})
 					.then((res) => res.json())

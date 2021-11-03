@@ -137,6 +137,7 @@
 <script>
 import { defineComponent } from 'vue';
 import axios from 'axios';
+import { config } from '../config';
 
 export default defineComponent({
 	data: () => ({
@@ -152,7 +153,7 @@ export default defineComponent({
 				formData.append('cvs', file);
 			}
 			axios
-				.post('http://localhost:8000/cv', formData, {
+				.post(`${config.apiUrl}/cv`, formData, {
 					headers: {
 						'Content-Type': 'multipart/form-data',
 					},
