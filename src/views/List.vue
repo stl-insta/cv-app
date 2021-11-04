@@ -60,7 +60,7 @@
 							<!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
 							<a
 								href="#"
-								class="text-gray-700 block px-4 py-2 text-sm"
+								class="cursor-not-allowed text-gray-700 block px-4 py-2 text-sm"
 								role="menuitem"
 								tabindex="-1"
 								id="sort-menu-item-0"
@@ -68,7 +68,7 @@
 							</a>
 							<a
 								href="#"
-								class="text-gray-700 block px-4 py-2 text-sm"
+								class="cursor-not-allowed text-gray-700 block px-4 py-2 text-sm"
 								role="menuitem"
 								tabindex="-1"
 								id="sort-menu-item-1"
@@ -90,7 +90,7 @@
 					<div class="min-w-0 space-y-3">
 						<div class="text-sm text-gray-500">ID : {{ cv.id }}</div>
 						<div class="relative group flex items-center space-x-2.5">
-							<template v-if="cv.type == '_doc'">
+							<template v-if="cv.url.includes('docx')">
 								<svg
 									version="1.1"
 									class="flex-shrink-0 w-6"

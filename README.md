@@ -5,6 +5,7 @@
 ```sh
 yarn
 yarn dev
+cp .env.example .env
 ```
 
 ## User interface
